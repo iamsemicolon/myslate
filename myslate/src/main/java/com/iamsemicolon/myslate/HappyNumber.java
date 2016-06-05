@@ -27,7 +27,7 @@ public class HappyNumber {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		getsum(11);
+		System.out.println( " 4: " + getsum(5));
 		System.out.println("done....");
 	}
 
@@ -41,25 +41,27 @@ public class HappyNumber {
 		return false;
 	}
 
-	private static int getsum(int num)
+	private static boolean getsum(int num)
 	{
-		if(num < 0) return 0;
-		if(num == 1) return 1;
-
+		if(num < 0) return false;
+		if(num == 1) return true;
 		int[] numArr =  getNumArr(num);
 		int sumVal = squaredSumOfNum(numArr);
-		if(sumVal != 1 )
+		if(sumVal == 1 )
+		{
+			return true;
+		}
+		else
 		{
 			if(sumVal > 9)
 			{
-				getsum(sumVal);
+				return getsum(sumVal);
 			}
 			else
 			{
-				return sumVal;
+				return false;
 			}
 		}
-		return 1;
 	}
 
 
